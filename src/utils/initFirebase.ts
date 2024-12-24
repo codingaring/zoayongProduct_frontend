@@ -2,13 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBPrj6zxmD3F3BjmMNGpl990P6ix4TGh_U',
-  authDomain: 'zoayongproduct.firebaseapp.com',
-  projectId: 'zoayongproduct',
-  storageBucket: 'zoayongproduct.firebasestorage.app',
-  messagingSenderId: '704106604683',
-  appId: '1: 704106604683:web: 669c922bba92ac35b04c8e',
-  measurementId: 'G-9T9ZB751WW',
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGIN_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
