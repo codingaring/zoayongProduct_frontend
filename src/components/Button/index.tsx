@@ -16,6 +16,7 @@ export const buttonVariant = cva(
         black: 'bg-gray-120 text-white before:bg-gray-120 active:bg-gray-150',
         primary: 'bg-green-20 text-white before:bg-green-20 active:bg-green-40',
         secondary: 'bg-green-40 text-white before:bg-green-40 active:bg-green-60',
+        simple: 'before:hidden',
       },
       size: {
         lg: 'px-8 py-5 text-2xl font-bold',

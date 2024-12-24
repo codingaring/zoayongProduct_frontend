@@ -3,6 +3,11 @@ import httpClient from '../httpClient';
 
 const http = httpClient();
 
+type AdminKey = {
+  email: string;
+  password: string;
+};
+
 const login = {
   googleLogin: async () => {
     try {
@@ -18,6 +23,9 @@ const login = {
     } catch (error: any) {
       return console.error('구글 로그인 실패', error);
     }
+  },
+  adminLogin: async (adminKey: AdminKey) => {
+    return http.post('/login?type=admin', adminKey);
   },
 };
 
