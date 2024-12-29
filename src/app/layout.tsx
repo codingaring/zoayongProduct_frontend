@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Providers from '@/context/Providers';
 import { GmarketSans } from '@styles/fonts';
 import '@styles/reset.css';
 import '@styles/globals.css';
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={GmarketSans.className}>{children}</body>
+      <Providers>
+        <body className={GmarketSans.className}>{children}</body>
+      </Providers>
     </html>
   );
 }

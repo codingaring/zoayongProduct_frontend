@@ -40,3 +40,6 @@ next-env.d.ts
 
 # test coverage
 coverage
+
+# data key
+/firebase_account.json
