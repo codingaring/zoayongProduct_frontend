@@ -1,11 +1,33 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { useEffect } from 'react';
 import StoreLogo from '@assets/images/store_logo.webp';
 import Button from '@components/Button';
+import { useGoogleLoginMutation } from '@hooks/reactQuery/authMutation';
+import { getCookie } from '@utils/cookie';
 import OAuth from './constants/oauth';
 
 const Login = () => {
+  const { mutate: googleLogin } = useGoogleLoginMutation();
+
+  const handleOAuthLogin = (oauth: string) => {
+    if (oauth === '구글') {
+      googleLogin();
+    } else if (oauth === '카카오') {
+      console.log('준비 중 입니다.');
+    }
+  };
+
+  useEffect(() => {
+    const accessToken = getCookie('accessToken');
+
+    if (accessToken) {
+      redirect('/');
+    }
+  });
+
   return (
     <div className="flex w-full flex-col items-center gap-5">
       <Link href={'/'}>
@@ -17,7 +39,7 @@ const Login = () => {
           <Button
             className={'relative w-full border-none md:w-80'}
             variant={'simple'}
-            onClick={oauth.onClick}
+            onClick={() => handleOAuthLogin(oauth.oauth)}
             key={oauth.oauth}
             style={{ backgroundColor: oauth.color }}>
             <Image
