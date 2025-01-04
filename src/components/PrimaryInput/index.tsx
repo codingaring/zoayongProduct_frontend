@@ -10,7 +10,7 @@ type PrimaryInputProps = {
 
 const PrimaryInput = ({ className, rightIcon, leftIcon, ...props }: PrimaryInputProps) => {
   return (
-    <form
+    <div
       className={cn(
         'relative flex w-full items-center justify-between overflow-hidden rounded-md bg-white',
         className,
@@ -25,7 +25,7 @@ const PrimaryInput = ({ className, rightIcon, leftIcon, ...props }: PrimaryInput
         {...props}
       />
       {rightIcon && <Image src={rightIcon} alt="input 아이콘" width={15} height={15} className="absolute right-2.5" />}
-    </form>
+    </div>
   );
 };
 
