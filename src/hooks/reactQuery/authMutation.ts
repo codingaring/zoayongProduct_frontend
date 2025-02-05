@@ -1,11 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
-import login, { AdminKey } from '@/apis/auth/login';
+import { AdminKey, adminLogin, googleLogin } from '@/apis/authAPI';
 import { setCookie } from '@utils/cookie';
 
 // 구글 로그인 Mutation
 export const useGoogleLoginMutation = () => {
   const mutation = useMutation({
-    mutationFn: async () => await login.googleLogin(),
+    mutationFn: async () => await googleLogin(),
     onSuccess: data => {
       setCookie('accessToken', data.accessToken);
     },
@@ -19,7 +19,7 @@ export const useGoogleLoginMutation = () => {
 // 관리자 로그인 Mutation
 export const useAdminLoginMutation = () => {
   const mutation = useMutation({
-    mutationFn: async (adminKey: AdminKey) => await login.adminLogin(adminKey),
+    mutationFn: async (adminKey: AdminKey) => await adminLogin(adminKey),
     onSuccess: data => {
       setCookie('accessToken', data.accessToken);
     },
